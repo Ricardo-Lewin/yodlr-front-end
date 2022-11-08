@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import NewUserForm from './NewUserForm';
+import RegisterForm from './RegisterForm';
+import Navigationbar from './Navigationbar';
 
 function App() {
   return (
     <div className="App">
-     <NewUserForm/>
+      <Navigationbar/>
+     <RegisterForm/>
     </div>
   );
 }
