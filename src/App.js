@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import RegisterForm from './RegisterForm';
+import UserRegisterForm from './users/UserRegisterForm';
 import Navigationbar from './Navigationbar';
 
 function App() {
   return (
     <div className="App">
       <Navigationbar/>
-     <RegisterForm/>
+     <UserRegisterForm/>
     </div>
   );
 }
