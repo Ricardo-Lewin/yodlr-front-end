@@ -6,12 +6,12 @@ function UserCard({ id, email, firstName, lastName, state }) {
         <li>
             <Card style={{width: '18rem'}}>
                 <Card.Body>
-                    <Card.Title>User ID: ${id}$ | {lastName}, {firstName}</Card.Title>
+                    <Card.Title>{lastName}, {firstName}</Card.Title>
                     <Card.Text>
+                        <div>User ID: {id}</div>
                         <div>Email: {email}</div>
                         <div>State: {state}</div>
                     </Card.Text>
-                    {/* <Button variant="primary">${firstName}'s User Page</Button> */}
                 </Card.Body>
             </Card>
         </li>

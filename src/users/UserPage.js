@@ -5,19 +5,21 @@ import UserCard from "./UserCard"
 
 function UserPage() {
     const { id } = useParams();
+    console.debug("USER ID", "ID=", id)
 
     const [user, setUser] = useState(null)
-    
 
-    useEffect(
-        function fetchUser() {
-            async function getUser() {
-                setUser(await Api.getUser(id))
+    useEffect(() => {
+            async function fetchUser() {
+                const res = await Api.getUser(id)
+                console.log(res)
+                setUser(res)
             }
 
-        getUser();
+        fetchUser();
     }, [id]);
 
+    if (!user) return <p>Loading...</p>
 
     return(
         <div>

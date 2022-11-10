@@ -32,7 +32,7 @@ function UserRegisterForm() {
             let res = await Api.register(formData)
             console.log(res)
             setFormData(DEFAULT_STATE)
-            history.push('/admin')    
+            history.push('/admin')   
         } else {
             alert("Passwords do not match.")
             setFormData(DEFAULT_STATE)
