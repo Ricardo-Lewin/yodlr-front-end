@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import Api from "./api";
+import Api from "../api/Api";
 import UserCard from "./UserCard"
 
 function UserList() {  
@@ -9,7 +9,6 @@ function UserList() {
         async function getUsers() {
             const res = await Api.getAllUsers()
             console.log(res)
-            console.log(Object.values(res))
             const usersRes = Object.values(res)
             setUsers(usersRes)
         }
