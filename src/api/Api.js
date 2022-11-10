@@ -1,45 +1,31 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
 
 class Api {
 
-    static async request(endpoint, data = {}, method = "get") {
-        console.debug("API Call:", endpoint, data, method);
-
-        const url = `${BASE_URL}/${endpoint}`;
-        const params = (method === "get")
-            ? data
-            : {};    
-
-        try {
-            return (await axios({ url, method, data, params })).data;
-            } catch (err) {
-            console.error("API Error:", err.response);
-            let message = err.response.data.error.message;
-            throw Array.isArray(message) ? message : [message];
-            }
-        }
 
     //API ROUTES
 
     //REGISTER
     static async register(data) {
-        let res = await this.request(`users`, data, "post");
-        return res;
+        const userData = {...data,['state']: 'active'}
+        const newUser = await axios.post(`${BASE_URL}/users`,userData)
+        console.log(newUser.data)
     }
 
     //GET ALL USERS - FOR ADMIN
     static async getAllUsers() {
-        let res = await this.request(`users`)
-        console.log(res.users)
-        return res.users;
+        const users = await axios.get(`${BASE_URL}/users`)
+        console.log(users)
+        console.log("call")
+        return users.data
     }
 
     //GET USER
-    static async getUser(user_id) {
-        let res = await this.request(`users/${user_id}`)
-        return res;
+    static async getUser(id) {
+        const user = await axios.get(`${BASE_URL}/users/${id}`)
+        return user.data
     }
 
     //PATCH USER
