@@ -6,14 +6,15 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function Navigationbar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">YODLR</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Users</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/users/new">Register</Nav.Link>
+            <Nav.Link href="/admin">Users</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
