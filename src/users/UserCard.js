@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 import Card from "react-bootstrap/Card";
 
 function UserCard({ id, email, firstName, lastName, state }) {
@@ -11,6 +12,7 @@ function UserCard({ id, email, firstName, lastName, state }) {
                         <div>User ID: {id}</div>
                         <div>Email: {email}</div>
                         <div>State: {state}</div>
+                        <div><Link to={`users/${id}`}>Edit Profile</Link></div>
                     </Card.Text>
                 </Card.Body>
             </Card>
