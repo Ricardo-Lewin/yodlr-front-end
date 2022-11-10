@@ -1,5 +1,8 @@
+import React from 'react';
 import {Route, Switch} from "react-router-dom"
 import UserRegisterForm from "./users/UserRegisterForm";
+import UserList from "./users/UsersList";
+import UserPage from './users/UserPage';
 
 function Routes() {
     return (
@@ -7,8 +10,12 @@ function Routes() {
             <Route exact path = "/users/new">
                 <UserRegisterForm/>
             </Route>
-            <Route exact path = "/users/:id"> <UserDetail users={users}/></Route>
-            <Route exact path = "/admin"> <Admin getUsers={getUsers} users={users}/></Route>
+            <Route exact path = "/users/:id">
+                <UserPage/>
+            </Route>
+            <Route exact path = "/admin">
+                <UserList/>
+            </Route>
         </Switch>
     );
   }
