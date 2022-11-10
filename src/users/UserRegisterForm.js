@@ -1,9 +1,11 @@
 import React, { useState } from "react"
+import {useHistory} from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Api from "../api/Api";
 
 function UserRegisterForm() {
+    const history = useHistory()
   
     const DEFAULT_STATE = {
         email:"",
@@ -14,30 +16,6 @@ function UserRegisterForm() {
     }
     const [formData, setFormData] = useState(DEFAULT_STATE)
 
-    async function register(data) {
-        let res = await Api.register(data)
-        console.log(res)
-    }
-
-    async function handleSubmit(e) {
-        e.preventDefault()
-        console.log(formData)
-
-        //check if passwords match
-        if (formData.password === formData.confirmPassword) {
-            await register({
-                email: formData.email,
-                firstName: formData.firstName,
-                lastName: formData.lastName,
-                password: formData.password
-            });
-           
-        } else {
-            alert("Passwords do not match.")
-            setFormData(DEFAULT_STATE)
-        }
-    }
-
     function handleChange(e) {
         const {value, name} = e.target
         setFormData(data => ({
@@ -45,6 +23,23 @@ function UserRegisterForm() {
             [name]: value
         }))
     }
+
+    async function handleSubmit(e) {
+        e.preventDefault()
+        
+        //check if passwords match
+        if (formData.password === formData.confirmPassword) {
+            let res = await Api.register(formData)
+            console.log(res)
+            setFormData(DEFAULT_STATE)
+            history.push('/admin')    
+        } else {
+            alert("Passwords do not match.")
+            setFormData(DEFAULT_STATE)
+        }
+    }
+
+    
 
     return(
         <>
