@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react"
 import Api from "../api/Api";
 import UserCard from "./UserCard"
+import "./UsersList.css"
 
 function UserList() {  
     const [users, setUsers] = useState([])
 
     useEffect(() => {
         async function getUsers() {
-            const res = await Api.getAllUsers()
-            console.log(res)
-            const usersRes = Object.values(res)
-            setUsers(usersRes)
+            const users = await Api.getAllUsers()
+            console.log(users)
+            setUsers(users)
         }
         getUsers()
     }, [])

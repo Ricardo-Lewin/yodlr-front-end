@@ -11,9 +11,9 @@ function UserPage() {
 
     useEffect(() => {
             async function fetchUser() {
-                const res = await Api.getUser(id)
-                console.log(res)
-                setUser(res)
+                const user = await Api.getUser(id)
+                console.log(user)
+                setUser(user)
             }
 
         fetchUser();
