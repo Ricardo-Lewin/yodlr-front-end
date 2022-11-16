@@ -8,11 +8,10 @@ function Navigationbar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">YODLR</Navbar.Brand>
+        <Navbar.Brand href="/">YODLR</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/users/new">Register</Nav.Link>
             <Nav.Link href="/admin">Users</Nav.Link>
           </Nav>
