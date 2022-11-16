@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom"
+import Homepage from './Homepage';
 import UserRegisterForm from "./users/UserRegisterForm";
 import UserList from "./users/UsersList";
 import UserPage from './users/UserPage';
@@ -8,6 +9,9 @@ import NotFound from './NotFound';
 function Routes() {
     return (
         <Switch>
+            <Route exact path = "/">
+                <Homepage/>
+            </Route>
             <Route exact path = "/users/new">
                 <UserRegisterForm/>
             </Route>
