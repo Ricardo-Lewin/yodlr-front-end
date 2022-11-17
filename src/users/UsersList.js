@@ -16,7 +16,7 @@ function UserList() {
     }, [])
 
     //add link to each li directing to user page
-    const usersLi = users.map(u => <UserCard key={u.id} id={u.id} email={u.email} firstName={u.firstName} lastName={u.lastName} state={u.state} />
+    const usersLi = users.map(u => <UserCard key={u.id} id={u.id} email={u.email} firstName={u.firstName} lastName={u.lastName} state={u.state} showLink showButton/>
     )
 
     return(
